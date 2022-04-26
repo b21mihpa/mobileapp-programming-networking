@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
     private final String JSON_FILE = "mountains.json";
 
     private ArrayList<Mountain> mountains;
+    private RecyclerView.Adapter mountainAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
