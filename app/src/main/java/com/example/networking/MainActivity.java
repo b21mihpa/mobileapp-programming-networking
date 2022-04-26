@@ -1,10 +1,12 @@
 package com.example.networking;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
 
@@ -26,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json) {
-        Log.d("JSON_RESPONSE", json);
+        Gson gson = new Gson();
+        mountains = gson.fromJson(json, new TypeToken<ArrayList<Mountain>>(){}.getType());
     }
 
 }
