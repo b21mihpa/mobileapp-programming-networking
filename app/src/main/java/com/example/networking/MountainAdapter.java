@@ -6,9 +6,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.MountainAdapterViewHolder> {
-    public MountainAdapter() {
-        // TODO
+    private ArrayList<Mountain> mountains;
+
+    public MountainAdapter(ArrayList<Mountain> mountains) {
+        this.mountains = mountains;
     }
 
     @NonNull
