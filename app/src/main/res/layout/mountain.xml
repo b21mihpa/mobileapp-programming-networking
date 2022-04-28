@@ -18,6 +18,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    ;
+
     <TextView
         android:id="@+id/mountain_name"
         android:layout_width="0dp"
@@ -29,5 +31,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mountain_image"
-        app:layout_constraintTop_toTopOf="parent" />;
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/mountain_height_meters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="8884m"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/mountain_name"
+        app:layout_constraintTop_toBottomOf="@+id/mountain_name" />
+
+    <TextView
+        android:id="@+id/mountain_height_feet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="29029ft"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/mountain_height_meters"
+        app:layout_constraintTop_toBottomOf="@+id/mountain_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

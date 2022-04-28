@@ -31,8 +31,11 @@ public class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.Mounta
 
     @Override
     public void onBindViewHolder(@NonNull MountainAdapter.MountainViewHolder holder, int position) {
-        holder.mountain_name.setText(mountains.get(position).name);
         Glide.with(context).load(mountains.get(position).auxdata.img).into(holder.mountain_image);
+
+        holder.mountain_name.setText(mountains.get(position).name);
+        holder.mountain_height_meters.setText((mountains.get(position)).meters + "m");
+        holder.mountain_height_feet.setText((mountains.get(position)).feet + "ft");
     }
 
     @Override
@@ -41,8 +44,10 @@ public class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.Mounta
     }
 
     public class MountainViewHolder extends RecyclerView.ViewHolder {
-        private TextView mountain_name;
         private ImageView mountain_image;
+        private TextView mountain_name;
+        private TextView mountain_height_meters;
+        private TextView mountain_height_feet;
 
         public MountainViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -51,6 +56,8 @@ public class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.Mounta
 
             mountain_name = itemView.findViewById(R.id.mountain_name);
             mountain_image = itemView.findViewById(R.id.mountain_image);
+            mountain_height_meters = itemView.findViewById(R.id.mountain_height_meters);
+            mountain_height_feet = itemView.findViewById(R.id.mountain_height_feet);
         }
     }
 }
