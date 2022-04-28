@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         Gson gson = new Gson();
         mountains = gson.fromJson(json, new TypeToken<ArrayList<Mountain>>(){}.getType());
 
+        // replace broken hyperlinks
+        mountains.get(0).auxdata.img = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Chogori.jpg/1920px-Chogori.jpg";
+        mountains.get(2).auxdata.img = "https://upload.wikimedia.org/wikipedia/commons/6/60/Matterhorn_from_Domh%C3%BCtte_-_2.jpg";
+
         recyclerView = findViewById(R.id.mountains);
         mountainAdapter = new MountainAdapter(mountains);
         recyclerView.setAdapter(mountainAdapter);

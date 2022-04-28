@@ -1,18 +1,23 @@
 package com.example.networking;
 
-import android.util.Log;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.MountainViewHolder> {
     private ArrayList<Mountain> mountains;
+
+    private Context context;
 
     public MountainAdapter(ArrayList<Mountain> mountains) {
         this.mountains = mountains;
@@ -27,6 +32,7 @@ public class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.Mounta
     @Override
     public void onBindViewHolder(@NonNull MountainAdapter.MountainViewHolder holder, int position) {
         holder.mountain_name.setText(mountains.get(position).name);
+        Glide.with(context).load(mountains.get(position).auxdata.img).into(holder.mountain_image);
     }
 
     @Override
@@ -36,11 +42,15 @@ public class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.Mounta
 
     public class MountainViewHolder extends RecyclerView.ViewHolder {
         private TextView mountain_name;
+        private ImageView mountain_image;
 
         public MountainViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            context = itemView.getContext();
+
             mountain_name = itemView.findViewById(R.id.mountain_name);
+            mountain_image = itemView.findViewById(R.id.mountain_image);
         }
     }
 }
