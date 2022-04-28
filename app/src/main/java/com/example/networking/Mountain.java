@@ -4,15 +4,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class Mountain {
     @SerializedName("ID")
-    private String id;
-    private String name;
-    private String type;
-    private String company;
-    private String location;
-    private String category;
+    public String id;
+    public String name;
+    public String type;
+    public String company;
+    public String location;
+    public String category;
     @SerializedName("size")
-    private int meters;
+    public int meters;
     @SerializedName("cost")
-    private int feet;
-    private Auxdata auxdata;
+    public int feet;
+    public Auxdata auxdata;
 }
